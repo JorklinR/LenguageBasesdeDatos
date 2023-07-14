@@ -1,0 +1,38 @@
+#titulo{
+    display: flex;
+	align-items: center;
+	justify-content: center;
+    padding: 30px;
+    
+}
+section {
+    margin: auto;
+    margin-top: 0%;
+  }
+  
+  h2 {
+    font-size: 24px; /* Tamaño de fuente para los títulos */
+    margin-top: 0; /* Eliminar margen superior del título */
+    display: flex;
+	align-items: center;
+	justify-content: center;
+    padding: 30px;
+  }
+  
+  p {
+    font-size: 16px; /* Tamaño de fuente para los párrafos */
+    line-height: 1.5; /* Espaciado entre líneas de los párrafos */
+    display: flex;
+	align-items: center;
+	justify-content: center;
+
+  
+  }
+
+  .center {
+    display: flex;
+	align-items: center;
+	justify-content: center;
+    padding: 30px;
+        
+  }
