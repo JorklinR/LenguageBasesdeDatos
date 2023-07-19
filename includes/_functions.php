@@ -36,15 +36,16 @@ function insertar_productos(){
                 $binariosImagen=fread($imagenSubida,$tamanoArchvio);   
         //se realiza la consulta correspondiente para guardar los datos
         
-        $imagenFin =mysqli_escape_string($conexion,$binariosImagen);
+        $imagenFin =mysqli_escape_string($conexion,$binariosImagen); /* Validar para generar el cambio de instruccion*/
                 
 
 
     $consulta="INSERT INTO productos (nombre, descripcion, color, precio, cantidad, cantidad_min, categorias, imagen)
     VALUES ('$nombre', '$descripcion', '$color', $precio, $cantidad ,$cantidad_min, '$categorias', '$imagenFin');" ;
 
-    mysqli_query($conexion, $consulta);
-    
+    oci_parse($conexion, $consulta); /*mysqli_query se elimina y se cambia por oci_parse */
+    oci_execute($consulta);
+
     header("Location: ../views/usuarios/");
 
 }
@@ -65,7 +66,8 @@ function editar_producto(){
                 
     $consulta="UPDATE productos SET nombre = '$nombre', descripcion = '$descripcion', color = '$color', precio = '$precio', cantidad = '$cantidad', categorias = '$categorias', imagen = '$imagenFin' WHERE id = $id";
 
-    mysqli_query($conexion, $consulta);
+    oci_parse($conexion, $consulta); /*mysqli_query se elimina y se cambia por oci_parse */
+    oci_execute($consulta);
     header("Location: ../views/usuarios/");
 }
 function eliminar_producto(){
@@ -74,7 +76,8 @@ function eliminar_producto(){
     extract($_POST);
     $id = $_POST['id'];
     $consulta = "DELETE FROM productos WHERE id = $id";
-    mysqli_query($conexion, $consulta);
+    oci_parse($conexion, $consulta);/*mysqli_query se elimina y se cambia por oci_parse */
+    oci_execute($consulta);
     header("Location: ../views/usuarios/");
 }
 ?>

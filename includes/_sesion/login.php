@@ -1,7 +1,7 @@
 <?php
 
-$conexion = oci_connect("Jorklin", "Jork1616", "//localhost:1521/orcl");
-$consulta="SELECT * FROM USUARIO where correo = 'Jorklin2009@gmail.com' and password = '1111'";
+$conexion = oci_connect("owen", "owen1234", "//localhost:1521/orcl"); /*Apartado cambiable segun la maquina de ejecucion*/
+$consulta="SELECT * FROM USUARIO where correo = 'owenlda252@gmailcom' and password = 'prueba123'";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 

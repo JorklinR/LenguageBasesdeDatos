@@ -3,8 +3,8 @@
 $id = $_GET['id'];
 require_once ("../../includes/_db.php");
 $consulta = "SELECT * FROM usuarios WHERE id = $id";
-$resultado = mysqli_query($conexion, $consulta);
-$usuario = mysqli_fetch_assoc($resultado);
+$resultado = oci_connect($conexion, $consulta);
+$usuario = mysqli_fetch_assoc($resultado); /*validar para hacer el cambio de instruccion*/
 
 
 ?>

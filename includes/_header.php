@@ -52,6 +52,36 @@ if($actualsesion == null || $actualsesion == ''){
     </a>
 </li>
 <li class="nav-item">
+    <a class="nav-link collapsed" href="Usuarios.php">
+    <span class="material-icons">pattern</span>
+        <span>Usuarios</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="Proveedor.php">
+    <span class="material-icons">pattern</span>
+        <span>Proveedor</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="Clientes.php">
+    <span class="material-icons">pattern</span>
+        <span>Clientes</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="Movimientos.php">
+    <span class="material-icons">pattern</span>
+        <span>Movimientos</span>
+    </a>
+</li>
+<li class="nav-item">
+    <a class="nav-link collapsed" href="Historico.php">
+    <span class="material-icons">pattern</span>
+        <span>Historico movimientos</span>
+    </a>
+</li>
+<li class="nav-item">
     <a class="nav-link collapsed" href="categorias.php">
         <span class="material-icons">category</span>
         <span>  Categorias</span>

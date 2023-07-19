@@ -1,4 +1,13 @@
+<?php
+error_reporting(0);
+session_start();
+$actualsesion = $_SESSION['correo'];
 
+if($actualsesion == null || $actualsesion == ''){
+
+    echo 'acceso denegado';
+    die();
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <?php require '../../includes/_db.php' ?>
@@ -21,11 +30,10 @@
 <thead>
 
 <tr>
+<th>Código de empleado</th>
 <th>Nombre</th>
-<th>Telefono</th>
 <th>Correo</th>
 <th>Contraseña</th>
-<th>registro</th>
 
 
 </tr>
@@ -36,34 +44,17 @@
 
 <?php
 
-$sql = "SELECT  nombre, password, telefono, correo,registro FROM user WHERE correo ='$actualsesion'";
-$usuarios = mysqli_query($conexion, $sql);
-if($usuarios -> num_rows > 0){
-foreach($usuarios as $key => $row ){
+$consulta="SELECT * FROM USUARIO where correo = '$actualsesion'";
+$resultado=oci_parse($conexion,$consulta);
+oci_execute($resultado);
 
-
-
-
-?>
-<tr>
-<td><?php echo $row['nombre']; ?></td>
-<td><?php echo $row['telefono']; ?></td>
-<td><?php echo $row['correo']; ?></td>
-<td><?php echo $row['password']; ?></td>
-<td><?php echo $row['registro']; ?></td>
-</tr>
-
-
-<?php
-}
-}else{
-
-    ?>
-    <tr class="text-center">
-    <td colspan="4">No existe registros</td>
-    </tr>
-
-    <?php
+while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
+    echo "<tr>";
+    echo "<td>".$row['ID_EMPLEADO']."</td>";
+    echo "<td>".$row['NOMBRE_EMPLEADO']."</td>";
+    echo "<td>".$row['CORREO']."</td>";
+    echo "<td>".$row['PASSWORD']."</td>";
+    echo "</tr>";
 }?>
 </tbody>
 
