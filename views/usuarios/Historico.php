@@ -8,8 +8,7 @@
         <div class="container mt-5">
 <div class="row">
 <div class="col-sm-12 mb-3">
-<center><h1>Productos</h1></center>
-<a href="producto_agregar.php"><input  class="btn btn-primary" type="button" value="Agregar producto"></a>
+<center><h1>Historico inventario</h1></center>
 </div>
 <div class="col-sm-12">
 <div class="table-responsive">
@@ -19,16 +18,9 @@
 <thead>
 
 <tr>
-<th>Codigo</th>
-<th>Nombre</th>
-<th>Tipo de producto</th>
-<th>Serie del producto</th>
-<th>Modelo</th>
-<th>Marca</th>
-<th>Cantidad</th>
-<th>Imagen</th>
-<th>Acciones</th>
-
+<th>Código historico</th>
+<th>Producto</th>
+<th>Número de movimiento</th>
 
 </tr>
 
@@ -37,8 +29,7 @@
 <tbody>
 
 <?php
-oci_connect("Jorklin", "Jork1616", "//localhost:1521/orcl");
-$consulta="SELECT * FROM PRODUCTO";
+$consulta="SELECT * FROM INVENTARIO";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -52,31 +43,12 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
+ echo "<td>".$row['ID_HISTORICO']."</td>";
  echo "<td>".$row['ID_PRODUCTO']."</td>";
- echo "<td>".$row['NOMBRE_PRODUCTO']."</td>";
- echo "<td>".$row['TIPO_PRODUCTO']."</td>";
- echo "<td>".$row['SERIE_PRODUCTO']."</td>";
- echo "<td>".$row['MODELO_PRODUCTO']."</td>";
- echo "<td>".$row['MARCA_PRODUCTO']."</td>";
- echo "<td>".$row['CANTIDAD_STOCK']."</td>";
+ echo "<td>".$row['ID_MOVIMIENTO']."</td>"; 
+ echo "</tr>";
 }?>
 
-<td><img width="100" src="data:image;base64,<?php echo base64_encode($row['imagen']);  ?>" ></td>
-
-<td>
-  <a href="producto_editar.php?id=<?php echo $row['ID_PRODUCTO']?>">
-    <div">
-      Editar
-    </div>
-  </a>
-  <a>|</a>
-  <a href="producto_eliminar.php?id=<?php echo $row['ID_PRODUCTO']?>">
-    <div">
-    Eliminar
-    </div>
-  </a>
-</td>
-</tr>
 
 </tbody>
 

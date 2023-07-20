@@ -11,7 +11,7 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<form  action="validar.php" method="POST">
+<form  action="validar_registro.php" method="POST">
 <div id="login" >
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
@@ -31,8 +31,6 @@
                                 <label for="password">Contraseña:</label><br>
                                 <input type="password" name="password" id="password" class="form-control" required>
                             </div>
-                           
-
                                 <div class="mb-3">
                                <input type="submit" name="registrar">
                                

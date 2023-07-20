@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <?php require '../../includes/_db.php' ?>
@@ -19,14 +20,14 @@
 <thead>
 
 <tr>
-<th>Codigo</th>
-<th>Nombre</th>
+<th>Codigo producto</th>
+<th>Proveedor</th>
+<th>Nombre de producto</th>
 <th>Tipo de producto</th>
 <th>Serie del producto</th>
 <th>Modelo</th>
 <th>Marca</th>
 <th>Cantidad</th>
-<th>Imagen</th>
 <th>Acciones</th>
 
 
@@ -37,7 +38,7 @@
 <tbody>
 
 <?php
-oci_connect("Jorklin", "Jork1616", "//localhost:1521/orcl");
+$conexion = oci_connect("Jorklin", "Jork1616", "//localhost:1521/orcl"); 
 $consulta="SELECT * FROM PRODUCTO";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
@@ -53,30 +54,24 @@ oci_execute($resultado);
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
  echo "<td>".$row['ID_PRODUCTO']."</td>";
+ echo "<td>".$row['ID_PROVEEDOR']."</td>";
  echo "<td>".$row['NOMBRE_PRODUCTO']."</td>";
  echo "<td>".$row['TIPO_PRODUCTO']."</td>";
  echo "<td>".$row['SERIE_PRODUCTO']."</td>";
  echo "<td>".$row['MODELO_PRODUCTO']."</td>";
  echo "<td>".$row['MARCA_PRODUCTO']."</td>";
  echo "<td>".$row['CANTIDAD_STOCK']."</td>";
+ echo "<td>";
+   echo '<a href="producto_editar.php?id=' . $row['ID_PRODUCTO'] . '">';
+  echo "<div>Editar</div>";
+   echo "</a>";
+ echo '<a href="producto_eliminar.php?id=' . $row['ID_PRODUCTO']. '">'; 
+ echo "<div>Eliminar</div>"; 
+ echo "</a>"; 
+ echo "</td>"; 
+ echo "</tr>";
 }?>
 
-<td><img width="100" src="data:image;base64,<?php echo base64_encode($row['imagen']);  ?>" ></td>
-
-<td>
-  <a href="producto_editar.php?id=<?php echo $row['ID_PRODUCTO']?>">
-    <div">
-      Editar
-    </div>
-  </a>
-  <a>|</a>
-  <a href="producto_eliminar.php?id=<?php echo $row['ID_PRODUCTO']?>">
-    <div">
-    Eliminar
-    </div>
-  </a>
-</td>
-</tr>
 
 </tbody>
 

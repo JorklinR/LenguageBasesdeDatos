@@ -1,19 +1,4 @@
-<?php
 
-$conexion = oci_connect("owen", "owen1234", "//localhost:1521/orcl"); /*Apartado cambiable segun la maquina de ejecucion*/
-$consulta="SELECT * FROM USUARIO where correo = 'owenlda252@gmailcom' and password = 'prueba123'";
-$resultado=oci_parse($conexion,$consulta);
-oci_execute($resultado);
-
-while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
-    echo "<tr>";
-    echo "<td>".$row['NOMBRE_EMPLEADO']."</td>";
-    echo "<td>".$row['CORREO']."</td>";
-    echo "<td>".$row['PASSWORD']."</td>";
-    echo "</tr>";
-}
-
-?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +11,7 @@ while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-<form  action="validar.php" method="POST">
+<form  action="validar_login.php" method="POST">
 <div id="login" >
         <div class="container">
             <div id="login-row" class="row justify-content-center align-items-center">
