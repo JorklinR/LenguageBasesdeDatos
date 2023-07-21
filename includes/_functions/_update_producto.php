@@ -15,7 +15,7 @@ require_once ("../_db.php");
 
                 
     $consulta="UPDATE producto SET ID_PROVEEDOR = $Proveedor, NOMBRE_PRODUCTO = '$Nombre', TIPO_PRODUCTO = $Tipo, 
-    SERIE_PRODUCTO = $serie, MODELO_PRODUCTO = '$Modelo', MARCA_PRODUCTO = '$Marca', CANTIDAD_STOCK = $Cantidad WHERE ID_PRODUCTO = $id";
+    SERIE_PRODUCTO = $serie, MODELO_PRODUCTO = '$Modelo', MARCA_PRODUCTO = '$Marca', STOCK = $Cantidad WHERE ID_PRODUCTO = $id";
 
     $resultado = oci_parse($conexion, $consulta); 
     oci_execute($resultado);

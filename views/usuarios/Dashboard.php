@@ -50,12 +50,12 @@
                                                 Productos en inventario</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
-                                            $consulta = "SELECT SUM(CANTIDAD_STOCK) FROM PRODUCTO";
+                                            $consulta = "SELECT SUM(STOCK) FROM PRODUCTO";
                                             $resultado = oci_parse($conexion, $consulta);
                                             oci_execute($resultado);
                                             $fila = oci_fetch_assoc($resultado);
 
-                                            $valor = $fila['SUM(CANTIDAD_STOCK)']; 
+                                            $valor = $fila['SUM(STOCK)']; 
                                             print($valor);
                                             ?>
 

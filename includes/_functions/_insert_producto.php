@@ -13,7 +13,7 @@ require_once ("../_db.php");
     $Cantidad=$_POST['Cantidad'];
 
 
-    $consulta="INSERT INTO PRODUCTO (ID_PRODUCTO, ID_PROVEEDOR, NOMBRE_PRODUCTO, TIPO_PRODUCTO, SERIE_PRODUCTO, MODELO_PRODUCTO, MARCA_PRODUCTO, CANTIDAD_STOCK)
+    $consulta="INSERT INTO PRODUCTO (ID_PRODUCTO, ID_PROVEEDOR, NOMBRE_PRODUCTO, TIPO_PRODUCTO, SERIE_PRODUCTO, MODELO_PRODUCTO, MARCA_PRODUCTO, STOCK)
     VALUES ($Codigo, $Proveedor, '$Nombre', $Tipo, $serie ,'$Modelo', '$Marca', $Cantidad)";
 
     $stid = oci_parse($conexion, $consulta);

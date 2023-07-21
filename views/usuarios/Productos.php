@@ -63,7 +63,7 @@ oci_execute($resultado);
  echo "<td>".$row['SERIE_PRODUCTO']."</td>";
  echo "<td>".$row['MODELO_PRODUCTO']."</td>";
  echo "<td>".$row['MARCA_PRODUCTO']."</td>";
- echo "<td>".$row['CANTIDAD_STOCK']."</td>";
+ echo "<td>".$row['STOCK']."</td>";
  echo "<td>";
  echo "<ul class='action-list'>";
  echo '<li><a href="producto_editar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Editar</div></a></li>';
