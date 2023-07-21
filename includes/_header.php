@@ -47,7 +47,7 @@ if($actualsesion == null || $actualsesion == ''){
 </div>
 
 <li class="nav-item">
-    <a class="nav-link collapsed" href="index.php">
+    <a class="nav-link collapsed" href="Productos.php">
     <span class="material-icons">pattern</span>
         <span>Productos</span>
     </a>

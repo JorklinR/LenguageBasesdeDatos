@@ -10,7 +10,7 @@ session_start();
 $_SESSION['correo']=$correo;
 
 
-$consulta="SELECT * FROM USUARIO where CORREO ='$correo' and password='$password'";
+$consulta="SELECT * FROM USUARIO where CORREO ='$correo' and PASSWORD_EMPLEADO='$password'";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 

@@ -20,6 +20,6 @@ require_once ("../_db.php");
     $resultado = oci_parse($conexion, $consulta); 
     oci_execute($resultado);
 
-    header('Location: ../../views/usuarios/index.php');
+    header('Location: ../../views/usuarios/Productos.php');
 
     ?>

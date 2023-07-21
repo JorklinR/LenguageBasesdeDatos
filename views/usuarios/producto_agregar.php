@@ -7,7 +7,7 @@
 
 <div class="container">
 <div class="col-sm-6 offset-3 mt-5">
-<form action="../../includes/_functions/_insert_producto.php" method="POST">
+<form action="../../../includes/_functions/_insert_producto.php" method="POST">
 
 <div class="row">
 <div class="col-sm-6">
@@ -102,5 +102,5 @@ oci_execute($resultado);
 </div>
 </div>
 </body>
-<?php require '../../../includes/_footer.php' ?>
+<?php require '../../includes/_footer.php' ?>
 </html>

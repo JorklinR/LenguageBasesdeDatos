@@ -1,14 +1,14 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <?php require '../../includes/_db.php' ?>
 <?php require '../../includes/_header.php' ?>
 <link rel="stylesheet" href="../../css/index.css">
 
-
-<section>
+        <section>
         <div class="container mt-5">
-            <center><h1>Clientes</h1></center>
-        <a href="producto_agregar.php"><input  id="agregar" class=" btn btn-primary" type="button" value="Agregar clientes"></a>
+            <center><h1>Productos</h1></center>
+        <a href="producto_agregar.php"><input  id="agregar" class=" btn btn-primary" type="button" value="Agregar producto"></a>
         <div class="row">
 <div class="col-md-offset-1 col-md-10">
 
@@ -24,12 +24,16 @@
                         <thead>
 
 <tr>
-<th>Código del cliente</th>
-<th>Nombre del cliente</th>
-<th>Dirección del cliente</th>
-<th>Número del cliente</th>
-<th>Correo del cliente</th>
+<th>Codigo producto</th>
+<th>Proveedor</th>
+<th>Nombre de producto</th>
+<th>Tipo de producto</th>
+<th>Serie del producto</th>
+<th>Modelo</th>
+<th>Marca</th>
+<th>Cantidad</th>
 <th>Acciones</th>
+
 
 </tr>
 
@@ -38,7 +42,7 @@
 <tbody>
 
 <?php
-$consulta="SELECT * FROM CLIENTE";
+$consulta="SELECT * FROM PRODUCTO";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -52,11 +56,14 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
- echo "<td>".$row['ID_CLIENTE']."</td>";
- echo "<td>".$row['NOMBRE_CLIENTE']."</td>";
- echo "<td>".$row['DIRECCION_CLIENTE']."</td>";
- echo "<td>".$row['NUMERO_TELEFONO_CLIENTE']."</td>";
- echo "<td>".$row['CORREO_ELECTRONICO_CLIENTE']."</td>";
+ echo "<td>".$row['ID_PRODUCTO']."</td>";
+ echo "<td>".$row['ID_PROVEEDOR']."</td>";
+ echo "<td>".$row['NOMBRE_PRODUCTO']."</td>";
+ echo "<td>".$row['TIPO_PRODUCTO']."</td>";
+ echo "<td>".$row['SERIE_PRODUCTO']."</td>";
+ echo "<td>".$row['MODELO_PRODUCTO']."</td>";
+ echo "<td>".$row['MARCA_PRODUCTO']."</td>";
+ echo "<td>".$row['CANTIDAD_STOCK']."</td>";
  echo "<td>";
  echo "<ul class='action-list'>";
  echo '<li><a href="producto_editar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Editar</div></a></li>';

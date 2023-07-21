@@ -58,7 +58,7 @@ while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
     echo "<td>".$row['ID_EMPLEADO']."</td>";
     echo "<td>".$row['NOMBRE_EMPLEADO']."</td>";
     echo "<td>".$row['CORREO']."</td>";
-    echo "<td>".$row['PASSWORD']. "</td>";
+    echo "<td>".$row['PASSWORD_EMPLEADO']. "</td>";
     echo "</tr>";
 }?>
 </tbody>

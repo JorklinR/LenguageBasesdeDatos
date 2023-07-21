@@ -19,5 +19,5 @@ require_once ("../_db.php");
     $stid = oci_parse($conexion, $consulta);
     oci_execute($stid);
 
-    header('Location: ../../views/usuarios/index.php');
+    header('Location: ../../views/usuarios/Productos.php');
 ?>

@@ -10,7 +10,7 @@ $password=$_POST['password'];
 
 
 
-$consulta = "INSERT INTO USUARIO (ID_EMPLEADO, NOMBRE_EMPLEADO, CORREO, PASSWORD)
+$consulta = "INSERT INTO USUARIO (ID_EMPLEADO, NOMBRE_EMPLEADO, CORREO, PASSWORD_EMPLEADO)
 VALUES (auto.nextval, '$nombre', '$correo','$password')";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
