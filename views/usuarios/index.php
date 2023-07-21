@@ -3,21 +3,25 @@
 <html lang="en">
 <?php require '../../includes/_db.php' ?>
 <?php require '../../includes/_header.php' ?>
+<link rel="stylesheet" href="../../css/index.css">
 
-<div id= "content">
         <section>
         <div class="container mt-5">
-<div class="row">
-<div class="col-sm-12 mb-3">
-<center><h1>Productos</h1></center>
-<a href="producto_agregar.php"><input  class="btn btn-primary" type="button" value="Agregar producto"></a>
+            <center><h1>Productos</h1></center>
+        <a href="producto_agregar.php"><input  id="agregar" class=" btn btn-primary" type="button" value="Agregar producto"></a>
+        <div class="row">
+<div class="col-md-offset-1 col-md-10">
+
+
 </div>
-<div class="col-sm-12">
-<div class="table-responsive">
-
-
-<table class="table table-striped table-hover">
-<thead>
+<div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
 
 <tr>
 <th>Codigo producto</th>
@@ -38,7 +42,6 @@
 <tbody>
 
 <?php
-$conexion = oci_connect("Jorklin", "Jork1616", "//localhost:1521/orcl"); 
 $consulta="SELECT * FROM PRODUCTO";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
@@ -62,12 +65,10 @@ oci_execute($resultado);
  echo "<td>".$row['MARCA_PRODUCTO']."</td>";
  echo "<td>".$row['CANTIDAD_STOCK']."</td>";
  echo "<td>";
-   echo '<a href="producto_editar.php?id=' . $row['ID_PRODUCTO'] . '">';
-  echo "<div>Editar</div>";
-   echo "</a>";
- echo '<a href="producto_eliminar.php?id=' . $row['ID_PRODUCTO']. '">'; 
- echo "<div>Eliminar</div>"; 
- echo "</a>"; 
+ echo "<ul class='action-list'>";
+ echo '<li><a href="producto_editar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Editar</div></a></li>';
+ echo '<li><a href="producto_eliminar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Eliminar</div></a></li>'; 
+ echo "</ul>"; 
  echo "</td>"; 
  echo "</tr>";
 }?>

@@ -1,46 +1,58 @@
 
+
+
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <link rel="stylesheet" href="../../css/login.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
-<form  action="validar_login.php" method="POST">
-<div id="login" >
-        <div class="container">
-            <div id="login-row" class="row justify-content-center align-items-center">
-                <div id="login-column" class="col-md-6">
-                    <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="" method="post">
-                            <h3 class="text-center">Login</h3>
-                            <div class="form-group">
-                                <label for="username">Correo:</label><br>
-                                <input type="text" name="correo" id="correo" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="password">Contraseña:</label><br>
-                                <input type="password" name="password" id="password" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                             <br>
-                                <input type="submit"class="btn btn-success btn-md space" value="ingresar">
-                                <div id="register-link" class="text-right">
-                                    <br>
-                                <a href="registros.php"><input type="button"  class="btn btn-primary space" value="registrarse"></a>
-                            </div>
-                            </div>
-                        </form>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inicio sesion</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@100&family=Open+Sans:wght@400;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+            rel="stylesheet">
+            <link rel="stylesheet" href="../../css/login.css">
+
+    </head>
+    <body>
+        <main>
+
+            <div class="container_all">
+                <div class="box1">
+                    <div class="box1-login">
+                        <h3>¿Ya tienes una cuenta?</h3>
+                        <p>Inicia sesión para ingresar a la página</p>
+                        <button id="btn_login">Iniciar Sesión</button>
+                    </div>
+                    <div class="box1-register">
+                        <h3>¿Aún no tienes una cuenta?</h3>
+                        <p>Regístrate para que puedas iniciar sesión</p>
+                        <button id="btn_register">Registrarse</button>
                     </div>
                 </div>
+
+                <!-- Formulario  -->
+                <div class="container_login-register">
+
+                    <!-- Login -->
+                    <form action="validar_login.php" class="formulario_login" method="POST">
+                        <h2>Iniciar Sesión</h2>
+                        <input type="email" placeholder="Correo Electronico" name="correo">
+                        <input type="password" placeholder="Contraseña" name="password">
+                        <button>Ingresar</button>
+                    </form>
+
+                    <!-- Register -->
+                    <form action="validar_registro.php" class="formulario_register" method="POST">
+                        <h2>Regístrate</h2>
+                        <input type="text" placeholder="Nombre Completo" name="nombre">
+                        <input type="email" placeholder="Correo Electronico" name="correo">
+                        <input type="password" placeholder="Contraseña" name="password">
+                        <button>Registrarse</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </div>
-    </form>
-</body>
+        </main>
+        <script src="login.js"></script>
+    </body>
 </html>

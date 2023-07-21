@@ -7,6 +7,6 @@ if($actualsesion == null || $actualsesion == ''){
 header('location: includes/_sesion/login.php');
 }
 else{
-   header('location: views/usuarios/index.php');
+   header('location: views/usuarios/Dashboard.php');
 }
 ?>

@@ -10,7 +10,6 @@ session_start();
 $_SESSION['correo']=$correo;
 
 
-$conexion = oci_connect("Jorklin", "Jork1616", "//localhost:1521/orcl");
 $consulta="SELECT * FROM USUARIO where CORREO ='$correo' and password='$password'";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
@@ -18,7 +17,7 @@ oci_execute($resultado);
 
 if($resultado == true){
   
-    header('Location: ../../views/usuarios/index.php');
+    header('Location: ../../views/usuarios/Dashboard.php');
 
 
 }else{

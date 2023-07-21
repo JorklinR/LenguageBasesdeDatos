@@ -18,10 +18,10 @@
 
     <div class="row">
         <div class="col-sm-6">
-            <form action="../../includes/_functions.php" method="POST">
+            <form action="../../includes/_functions/_delete_producto.php" method="POST">
             <input type="hidden" name="accion" value="eliminar_producto">
             <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-            <input type="submit" name="" value="eliminar" class="btn btn-success">
+            <input type="submit" value="eliminar" class="btn btn-success">
             <a href="./" class="btn btn-danger">cancelar</a>
         </div>
     </div>

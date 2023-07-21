@@ -9,6 +9,7 @@ if($actualsesion == null || $actualsesion == ''){
     die();
 }
 ?>
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,21 +23,21 @@ if($actualsesion == null || $actualsesion == ''){
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
     <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/index.css">
     <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
 </head>
-<body>
     
-<div id="wrapper">
+<div class="barra" id="wrapper">
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
     <div class="sidebar-brand-icon rotate-n-15">
     </div>
-    <div class="sidebar-brand-text mx-3">ADMIN</div>
+    <div class="sidebar-brand-text mx-3">Inventario</div>
 </a>
 <hr class="sidebar-divider my-0">
 <li class="nav-item active">
-    <a class="nav-link" href="index.php">
+    <a class="nav-link" href="Dashboard.php">
         <i class="material-icons-outlined"></i>
         <span>Dashboard</span></a>
 </li>
@@ -107,13 +108,12 @@ if($actualsesion == null || $actualsesion == ''){
 <hr class="sidebar-divider d-none d-md-block">
 
 <div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0"></button>
 </div>
 </ul>
 <!-- EMPIEZA EL NAVBAR -->
        <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
-                <nav class="navbar navbar-expand navbar-dark bg-dark topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-dark bg-info topbar mb-4 static-top shadow">
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
@@ -138,7 +138,7 @@ if($actualsesion == null || $actualsesion == ''){
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $actualsesion?> </span>
+                                <span class="mr-2 d-none d-lg-inline text-white-600 small"><?php echo $actualsesion?> </span>
                                 <span class="material-icons">account_circle</span>
                             </a>
                         </li>

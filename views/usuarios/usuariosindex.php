@@ -12,22 +12,27 @@ if($actualsesion == null || $actualsesion == ''){
 <html lang="en">
 <?php require '../../includes/_db.php' ?>
 <?php require '../../includes/_header.php' ?>
+<link rel="stylesheet" href="../../css/index.css">
 
 <body>
   
-<div id= "content">
+
         <section>
         <div class="container mt-5">
-<div class="row">
-<div class="col-sm-12 mb-3">
-<center><h1>Información de sesion actual</h1></center>
+            <center><h1>Información de usuario actual</h1></center>
+        <div class="row">
+<div class="col-md-offset-1 col-md-10">
+
+
 </div>
-<div class="col-sm-12">
-<div class="table-responsive">
-
-
-<table class="table table-striped table-hover">
-<thead>
+<div class="panel">
+                <div class="panel-heading">
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="panel-body table-responsive">
+                    <table class="table">
+                        <thead>
 
 <tr>
 <th>Código de empleado</th>
@@ -53,7 +58,7 @@ while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
     echo "<td>".$row['ID_EMPLEADO']."</td>";
     echo "<td>".$row['NOMBRE_EMPLEADO']."</td>";
     echo "<td>".$row['CORREO']."</td>";
-    echo "<td>".$row['PASSWORD']."</td>";
+    echo "<td>".$row['PASSWORD']. "</td>";
     echo "</tr>";
 }?>
 </tbody>
@@ -76,5 +81,4 @@ while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
     
     <?php require '../../includes/_footer.php' ?>
     </body>
-
 </html>

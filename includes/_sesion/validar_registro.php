@@ -10,7 +10,6 @@ $password=$_POST['password'];
 
 
 
-$conexion = oci_connect("Jorklin", "Jork1616", "//localhost:1521/orcl");
 $consulta = "INSERT INTO USUARIO (ID_EMPLEADO, NOMBRE_EMPLEADO, CORREO, PASSWORD)
 VALUES (auto.nextval, '$nombre', '$correo','$password')";
 $resultado=oci_parse($conexion,$consulta);

@@ -2,9 +2,10 @@
 <html lang="en">
 <?php require '../../includes/_db.php' ?>
 <?php require '../../includes/_header.php' ?>
+<link rel="stylesheet" href="../../css/index.css">
 <body>
 
-<div id= "content">
+
         <section>
         <div class="container mt-5">
 <div class="row">
