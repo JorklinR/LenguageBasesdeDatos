@@ -17,8 +17,8 @@
 </div>
 </div>
 
-
 <?php
+/** */
 $consulta="SELECT * FROM PROVEEDOR";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
