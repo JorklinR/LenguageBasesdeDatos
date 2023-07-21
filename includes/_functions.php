@@ -41,7 +41,7 @@ function insertar_productos(){
 
 
     $consulta="INSERT INTO productos (nombre, descripcion, color, precio, cantidad, cantidad_min, categorias, imagen)
-    VALUES ('$nombre', '$descripcion', '$color', $precio, $cantidad ,$cantidad_min, '$categorias', '$imagenFin');" ;
+    VALUES ('$nombre', '$descripcion', '$color', $precio, $cantidad ,$cantidad_min, '$categorias', '$imagenFin');" ; /** Se debe cambiar por un SP */
 
     oci_parse($conexion, $consulta); /*mysqli_query se elimina y se cambia por oci_parse */
     oci_execute($consulta);

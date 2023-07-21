@@ -2,34 +2,33 @@
 <html lang="en">
 <?php require '../../includes/_db.php' ?>
 <?php require '../../includes/_header.php' ?>
-<link rel="stylesheet" href="../../css/index.css">
 
-
-<section>
+<div id= "content">
+        <section>
         <div class="container mt-5">
-            <center><h1>Clientes</h1></center>
-        <a href="producto_agregar.php"><input  id="agregar" class=" btn btn-primary" type="button" value="Agregar clientes"></a>
-        <div class="row">
-<div class="col-md-offset-1 col-md-10">
-
-
+<div class="row">
+<div class="col-sm-12 mb-3">
+<center><h1>Productos</h1></center>
+<a href="producto_agregar.php"><input  class="btn btn-primary" type="button" value="Agregar producto"></a>
 </div>
-<div class="panel">
-                <div class="panel-heading">
-                    <div class="row">
-                    </div>
-                </div>
-                <div class="panel-body table-responsive">
-                    <table class="table">
-                        <thead>
+<div class="col-sm-12">
+<div class="table-responsive">
+
+
+<table class="table table-striped table-hover">
+<thead>
 
 <tr>
-<th>Código del cliente</th>
-<th>Nombre del cliente</th>
-<th>Dirección del cliente</th>
-<th>Número del cliente</th>
-<th>Correo del cliente</th>
+<th>Codigo</th>
+<th>Nombre</th>
+<th>Tipo de producto</th>
+<th>Serie del producto</th>
+<th>Modelo</th>
+<th>Marca</th>
+<th>Cantidad</th>
+<th>Imagen</th>
 <th>Acciones</th>
+
 
 </tr>
 
@@ -38,7 +37,8 @@
 <tbody>
 
 <?php
-$consulta="SELECT * FROM CLIENTE";
+$conexion = oci_connect("owen", "owen1234", "//localhost:1521/orcl");  /*Apartado cambiable segun la maquina de ejecucion*/
+$consulta="SELECT * FROM PRODUCTO"; /*Se debe cambiar por SP */
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -52,20 +52,31 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
- echo "<td>".$row['ID_CLIENTE']."</td>";
- echo "<td>".$row['NOMBRE_CLIENTE']."</td>";
- echo "<td>".$row['DIRECCION_CLIENTE']."</td>";
- echo "<td>".$row['NUMERO_TELEFONO_CLIENTE']."</td>";
- echo "<td>".$row['CORREO_ELECTRONICO_CLIENTE']."</td>";
- echo "<td>";
- echo "<ul class='action-list'>";
- echo '<li><a href="producto_editar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Editar</div></a></li>';
- echo '<li><a href="producto_eliminar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Eliminar</div></a></li>'; 
- echo "</ul>"; 
- echo "</td>"; 
- echo "</tr>";
+ echo "<td>".$row['ID_PRODUCTO']."</td>";
+ echo "<td>".$row['NOMBRE_PRODUCTO']."</td>";
+ echo "<td>".$row['TIPO_PRODUCTO']."</td>";
+ echo "<td>".$row['SERIE_PRODUCTO']."</td>";
+ echo "<td>".$row['MODELO_PRODUCTO']."</td>";
+ echo "<td>".$row['MARCA_PRODUCTO']."</td>";
+ echo "<td>".$row['CANTIDAD_STOCK']."</td>";
 }?>
 
+<td><img width="100" src="data:image;base64,<?php echo base64_encode($row['imagen']);  ?>" ></td>
+
+<td>
+  <a href="producto_editar.php?id=<?php echo $row['ID_PRODUCTO']?>">
+    <div">
+      Editar
+    </div>
+  </a>
+  <a>|</a>
+  <a href="producto_eliminar.php?id=<?php echo $row['ID_PRODUCTO']?>">
+    <div">
+    Eliminar
+    </div>
+  </a>
+</td>
+</tr>
 
 </tbody>
 
