@@ -1,3 +1,10 @@
+--CREDENCIALES DE CONEXION A DB
+--user : owen
+--password : owen1234
+--
+
+
+
 --Tabla de Proveedor 
  CREATE TABLE PROVEEDOR(
 ID_PROVEEDOR number(10), 
@@ -871,9 +878,9 @@ CREATE OR REPLACE PROCEDURE p_usuario_ordena_desc_nombre_emp
 execute  p_usuario_ordena_desc_nombre_emp;
 
 --------------------------------------------------------------------------------------------------------
---SPs para los DML del PHP
+--SPS PARA LOS DML DEL PHP
 
----- sp de insert on functions.php
+---- sp de insert on insert_producto.php
 CREATE OR REPLACE PROCEDURE p_insert_productos(v_id_proveedor in number, v_nombre_producto in varchar2, v_tipo_producto in number, v_serie_producto in number, v_modelo_producto in varchar2, v_marca_producto in varchar2, v_stock in number, v_imagen_producto in varchar2)
     AS --bloque de declaracion de valariables para interaccion.
         v_producto PRODUCTO%rowtype;
@@ -956,6 +963,84 @@ CREATE OR REPLACE PROCEDURE p_insert_usuario(v_nombre_empleado in varchar2, v_co
     END;
     
 execute  p_insert_usuario();
+
+
+
+-- SP Para todos los select de views de PHP mediante las vistas.
+
+--Consulta Producto
+CREATE OR REPLACE PROCEDURE p_consulta_Productos
+as
+   
+    begin
+    
+    for i in (   SELECT   ID_PRODUCTO,
+                          ID_PROVEEDOR,
+                          NOMBRE_PRODUCTO,
+                          TIPO_PRODUCTO,
+                          SERIE_PRODUCTO,
+                          MODELO_PRODUCTO,
+                          MARCA_PRODUCTO,
+                          STOCK 
+                from PRODUCTO )
+    loop
+        dbms_output.put_line('El numero de producto es: '||' '||i.ID_PRODUCTO
+                            ||'   El nombre del producto es: '|| i.NOMBRE_PRODUCTO
+                            ||'   La serie del producto es: '|| i.SERIE_PRODUCTO
+                            ||'   El modelo del producto es: '|| i.MODELO_PRODUCTO
+                            ||'   La marca del producto es:'|| i.MARCA_PRODUCTO
+                            ||'   El stock del producto es:'|| i.STOCK
+                            );
+       end loop;                    
+    end;
+ 
+execute p_consulta_Productos;  
+
+
+
+--Consulta Usuarios
+CREATE OR REPLACE PROCEDURE p_consulta_Usuarios
+as
+   
+    begin
+    
+    for i in (   SELECT   ID_PRODUCTO,
+                          ID_PROVEEDOR,
+                          NOMBRE_PRODUCTO,
+                          TIPO_PRODUCTO,
+                          SERIE_PRODUCTO,
+                          MODELO_PRODUCTO,
+                          MARCA_PRODUCTO,
+                          STOCK 
+                from PRODUCTO )
+    loop
+        dbms_output.put_line('El numero de producto es: '||' '||i.ID_PRODUCTO
+                            ||'   El nombre del producto es: '|| i.NOMBRE_PRODUCTO
+                            ||'   La serie del producto es: '|| i.SERIE_PRODUCTO
+                            ||'   El modelo del producto es: '|| i.MODELO_PRODUCTO
+                            ||'   La marca del producto es:'|| i.MARCA_PRODUCTO
+                            ||'   El stock del producto es:'|| i.STOCK
+                            );
+       end loop;                    
+    end;
+ 
+execute p_consulta_Productos;  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 --CREACION DE FUNCIONES PARA LAS TABLAS           | INCLUIR CURSORES
@@ -1058,6 +1143,9 @@ BEGIN
 END;
 
 select cuenta_Proveedores as Cuenta_Proveedores  from dual;
+
+
+
 
 
 --Alteracion de Secuencias
