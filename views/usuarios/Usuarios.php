@@ -8,7 +8,7 @@
         <section>
         <div class="container mt-5">
             <center><h1>Usuarios</h1></center>
-        <a href="producto_agregar.php"><input  id="agregar" class=" btn btn-primary" type="button" value="Agregar usuario"></a>
+        <a href="usuario_agregar.php"><input  id="agregar" class=" btn btn-primary" type="button" value="Agregar usuario"></a>
         <div class="row">
 <div class="col-md-offset-1 col-md-10">
 
@@ -54,8 +54,8 @@ oci_execute($resultado);
  echo "<td>".$row['CORREO']."</td>";
  echo "<td>";
  echo "<ul class='action-list'>";
- echo '<li><a href="producto_editar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Editar</div></a></li>';
- echo '<li><a href="producto_eliminar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Eliminar</div></a></li>'; 
+ echo '<li><a href="usuario_editar.php?id=' . $row['ID_EMPLEADO'] . '" <div>Editar</div></a></li>';
+ echo '<li><a href="usuario_eliminar.php?id=' . $row['ID_EMPLEADO'] . '" <div>Eliminar</div></a></li>'; 
  echo "</ul>"; 
  echo "</td>"; 
  echo "</tr>";
