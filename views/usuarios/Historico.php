@@ -34,7 +34,9 @@
 <tbody>
 
 <?php
-$consulta="SELECT * FROM INVENTARIO";
+$consulta="SELECT * FROM VISTA_INVENTARIOS_NM I
+JOIN 
+Producto P on i.producto = p.id_producto";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -48,9 +50,9 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
- echo "<td>".$row['ID_HISTORICO']."</td>";
- echo "<td>".$row['ID_PRODUCTO']."</td>";
- echo "<td>".$row['ID_MOVIMIENTO']."</td>"; 
+ echo "<td>".$row['IDENTIFICADOR']."</td>";
+ echo "<td>".$row['NOMBRE_PRODUCTO']."</td>";
+ echo "<td>".$row['MOVIMIENTO']."</td>"; 
  echo "</tr>";
 }?>
 

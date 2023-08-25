@@ -40,7 +40,15 @@
 <tbody>
 
 <?php
-$consulta="SELECT * FROM MOVIMIENTO_INVENTARIO";
+$consulta="SELECT * FROM VISTA_MOVIMIENTOS_INVENTARIO_NM I
+JOIN
+  TIPOS_MOVIMIENTOS T ON I.TIPO_MOVIMIENTO = T.ID_TIPO_MOVIMIENTO
+JOIN
+  Cliente C ON I.IDENTIFICADOR_CLIENTE = C.ID_CLIENTE
+  JOIN
+  Producto P ON I.PRODUCTO = P.ID_PRODUCTO
+    JOIN
+  Usuario U ON I.Empleado = U.ID_EMPLEADO order by Fecha desc";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -54,14 +62,14 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
- echo "<td>".$row['ID_MOVIMIENTO']."</td>";
- echo "<td>".$row['ID_MOVIMIENTO']."</td>";
+ echo "<td>".$row['IDENTIFICADOR']."</td>";
+ echo "<td>".$row['CATEGORIA']."</td>";
  echo "<td>".$row['NUM_ORDEN']."</td>";
- echo "<td>".$row['ID_CLIENTE']."</td>";
- echo "<td>".$row['FECHA_MOVIMIENTO']."</td>";
- echo "<td>".$row['ID_PRODUCTO']."</td>";
- echo "<td>".$row['CANTIDAD_MOVIMIENTO']."</td>";
- echo "<td>".$row['ID_EMPLEADO']."</td>";
+ echo "<td>".$row['NOMBRE_CLIENTE']."</td>";
+ echo "<td>".$row['FECHA']."</td>";
+ echo "<td>".$row['NOMBRE_PRODUCTO']."</td>";
+ echo "<td>".$row['CANTIDAD']."</td>";
+ echo "<td>".$row['NOMBRE_EMPLEADO']."</td>";
  echo "</tr>";
 }?>
 

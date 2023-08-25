@@ -12,12 +12,17 @@ require_once ("../_db.php");
     $Cantidad=$_POST['Cantidad'];
     $Empleado=$_POST['Empleado'];
 
-
-    $consulta="INSERT INTO MOVIMIENTO_INVENTARIO (ID_MOVIMIENTO, ID_TIPO_MOVIMIENTO, NUM_ORDEN, ID_CLIENTE, FECHA_MOVIMIENTO, ID_PRODUCTO, CANTIDAD_MOVIMIENTO, ID_EMPLEADO)
-    VALUES ($Codigo, $Tipo, $orden, $Cliente, TO_DATE('$fecha', 'yyyy/mm/dd') ,$producto, $Cantidad, $Empleado)";
+    $consulta= "begin  InsertarMovimientoInventario(Automovimiento.nextval, $Tipo, AUTOORDEN.nextval, $Cliente, TO_DATE('$fecha', 'yyyy/mm/dd') ,$producto, $Cantidad, $Empleado); End;";
 
     $stid = oci_parse($conexion, $consulta);
-    oci_execute($stid);
+    if (!oci_execute($stid)) {
+        $e = oci_error($stid);
+        echo "Error: " . htmlentities($e['message'], ENT_QUOTES);
+        header('Location: ../../views/usuarios/Error_stock.php');
+    }
+    else{
+        header('Location: ../../views/usuarios/Movimientos.php');
+    }
 
-    header('Location: ../../views/usuarios/Movimientos.php');
+    
 ?>

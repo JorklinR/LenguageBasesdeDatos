@@ -30,7 +30,7 @@ if($actualsesion == null || $actualsesion == ''){
 <div class="barra" id="wrapper">
     <!-- Sidebar -->
     <ul class="navbar-nav bg-info sidebar sidebar-dark accordion" id="accordionSidebar">
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Dashboard.php">
     <div class="sidebar-brand-icon rotate-n-15">
     </div>
     <div class="sidebar-brand-text mx-3">Inventario</div>

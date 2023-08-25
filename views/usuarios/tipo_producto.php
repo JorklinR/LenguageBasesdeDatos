@@ -34,7 +34,7 @@
 <tbody>
 
 <?php
-$consulta="SELECT * FROM TIPO_PRODUCTO";
+$consulta="SELECT * FROM VISTA_TIPO_PRODUCTO_NM";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -48,12 +48,12 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
- echo "<td>".$row['ID_CATEGORIA']."</td>";
- echo "<td>".$row['DESCRIPCION_CATEGORIA_TIPO_PRODUCTO']."</td>";
+ echo "<td>".$row['IDENTIFICADOR']."</td>";
+ echo "<td>".$row['DESCRIPCION']."</td>";
  echo "<td>";
  echo "<ul class='action-list'>";
- echo '<li><a href="tipo_producto_editar.php?id=' . $row['ID_CATEGORIA'] . '" <div>Editar</div></a></li>';
- echo '<li><a href="tipo_producto_eliminar.php?id=' . $row['ID_CATEGORIA'] . '" <div>Eliminar</div></a></li>'; 
+ echo '<li><a href="tipo_producto_editar.php?id=' . $row['IDENTIFICADOR'] . '" <div>Editar</div></a></li>';
+ echo '<li><a href="tipo_producto_eliminar.php?id=' . $row['IDENTIFICADOR'] . '" <div>Eliminar</div></a></li>'; 
  echo "</ul>"; 
  echo "</td>"; 
  echo "</tr>";

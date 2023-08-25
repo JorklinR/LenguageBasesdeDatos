@@ -13,9 +13,7 @@ require_once ("../_db.php");
     $Cantidad=$_POST['Cantidad'];
 
 
-    $consulta="INSERT INTO PRODUCTO (ID_PRODUCTO, ID_PROVEEDOR, NOMBRE_PRODUCTO, TIPO_PRODUCTO, SERIE_PRODUCTO, MODELO_PRODUCTO, MARCA_PRODUCTO, STOCK)
-    VALUES ($Codigo, $Proveedor, '$Nombre', $Tipo, $serie ,'$Modelo', '$Marca', $Cantidad)";
-
+    $consulta= "begin  InsertarProducto(Autoproductos.nextval, $Proveedor, '$Nombre', $Tipo, $serie ,'$Modelo', '$Marca', $Cantidad); End;";
     $stid = oci_parse($conexion, $consulta);
     oci_execute($stid);
 

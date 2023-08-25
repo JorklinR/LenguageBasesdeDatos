@@ -10,9 +10,7 @@ require_once ("../_db.php");
     $Numero=$_POST['Numero'];
     $Correo=$_POST['Correo'];
 
-                
-    $consulta="UPDATE Cliente SET NOMBRE_CLIENTE = '$Cliente', DIRECCION_CLIENTE = '$Direccion', 
-    NUMERO_TELEFONO_CLIENTE = $Numero, CORREO_ELECTRONICO_CLIENTE = '$Correo' WHERE ID_CLIENTE = $id";
+    $consulta= "begin  ActualizarClientes($id,'$Cliente','$Direccion', $Numero,'$Correo'); End;";           
 
     $resultado = oci_parse($conexion, $consulta); 
     oci_execute($resultado);

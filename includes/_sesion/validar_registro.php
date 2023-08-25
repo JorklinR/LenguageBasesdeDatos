@@ -9,9 +9,7 @@ $correo=$_POST['correo'];
 $password=$_POST['password'];
 
 
-
-$consulta = "INSERT INTO USUARIO (ID_EMPLEADO, NOMBRE_EMPLEADO, CORREO, PASSWORD_EMPLEADO)
-VALUES (autoUsuario.nextval, '$nombre', '$correo','$password')";
+$consulta= "begin  p_insert_usuario('$nombre', '$correo','$password'); End;"; 
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 

@@ -38,7 +38,7 @@
 <tbody>
 
 <?php
-$consulta="SELECT * FROM CLIENTE";
+    $consulta= "select * from vista_clientes_nm";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -52,15 +52,15 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
- echo "<td>".$row['ID_CLIENTE']."</td>";
+ echo "<td>".$row['IDENTIFICADOR']."</td>";
  echo "<td>".$row['NOMBRE_CLIENTE']."</td>";
- echo "<td>".$row['DIRECCION_CLIENTE']."</td>";
- echo "<td>".$row['NUMERO_TELEFONO_CLIENTE']."</td>";
- echo "<td>".$row['CORREO_ELECTRONICO_CLIENTE']."</td>";
+ echo "<td>".$row['DIRECCION']."</td>";
+ echo "<td>".$row['CONTACTO_TELEFONICO']."</td>";
+ echo "<td>".$row['CORREO_ELECTRONICO']."</td>";
  echo "<td>";
  echo "<ul class='action-list'>";
- echo '<li><a href="cliente_editar.php?id=' . $row['ID_CLIENTE'] . '" <div>Editar</div></a></li>';
- echo '<li><a href="cliente_eliminar.php?id=' . $row['ID_CLIENTE'] . '" <div>Eliminar</div></a></li>'; 
+ echo '<li><a href="cliente_editar.php?id=' . $row['IDENTIFICADOR'] . '" <div>Editar</div></a></li>';
+ echo '<li><a href="cliente_eliminar.php?id=' . $row['IDENTIFICADOR'] . '" <div>Eliminar</div></a></li>'; 
  echo "</ul>"; 
  echo "</td>"; 
  echo "</tr>";

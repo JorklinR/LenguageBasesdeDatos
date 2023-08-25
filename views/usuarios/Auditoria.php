@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard</title>
+    <title>Auditoria</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -33,7 +33,7 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Auditoria</h1>
 
                     </div>
 
@@ -47,11 +47,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Productos en inventario</div>
+                                                Auditoria Cliente</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
                                           
-                                            $consulta = "begin SumaInventario(:p_RESULTADO, :p_CURSOR); End;";
+                                            $consulta = "begin AuditCliente(:p_RESULTADO, :p_CURSOR); End;";
                                             $resultado = oci_parse($conexion, $consulta);
                                             $cursor = oci_new_cursor($conexion);
                                             oci_bind_by_name($resultado, ':p_CURSOR', $cursor, -1, OCI_B_CURSOR);
@@ -72,7 +72,7 @@
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
-                                        <a href="Productos.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
+                                        <a href="Auditoria_Clientes.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
                                     </div>
                                 </div>
                             </div>
@@ -85,11 +85,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Empleados activos</div>
+                                            Auditoria movimientos</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
                                           
-                                            $consulta = "begin ContarEmpleados(:p_RESULTADO, :p_CURSOR); End;";
+                                            $consulta = "begin AuditMovimientos(:p_RESULTADO, :p_CURSOR); End;";
                                             $resultado = oci_parse($conexion, $consulta);
                                             $cursor = oci_new_cursor($conexion);
                                             oci_bind_by_name($resultado, ':p_CURSOR', $cursor, -1, OCI_B_CURSOR);
@@ -110,7 +110,7 @@
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
-                                        <a href="Usuarios.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
+                                        <a href="Auditoria_movimientos.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
                                     </div>
                                 </div>
                             </div>
@@ -123,11 +123,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Proveedores activos</div>
+                                                Auditoria productos</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
                                           
-                                            $consulta = "begin ContarProveedor(:p_RESULTADO, :p_CURSOR); End;";
+                                            $consulta = "begin AuditProductos(:p_RESULTADO, :p_CURSOR); End;";
                                             $resultado = oci_parse($conexion, $consulta);
                                             $cursor = oci_new_cursor($conexion);
                                             oci_bind_by_name($resultado, ':p_CURSOR', $cursor, -1, OCI_B_CURSOR);
@@ -148,7 +148,7 @@
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
-                                        <a href="Proveedor.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
+                                        <a href="Auditoria_productos.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
                                     </div>
                                 </div>
                             </div>
@@ -161,11 +161,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total movimientos</div>
+                                                Auditoria proveedores</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
                                           
-                                            $consulta = "begin ContarMovimiento(:p_RESULTADO, :p_CURSOR); End;";
+                                            $consulta = "begin AuditProveedor(:p_RESULTADO, :p_CURSOR); End;";
                                             $resultado = oci_parse($conexion, $consulta);
                                             $cursor = oci_new_cursor($conexion);
                                             oci_bind_by_name($resultado, ':p_CURSOR', $cursor, -1, OCI_B_CURSOR);
@@ -186,7 +186,7 @@
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
-                                        <a href="Movimientos.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
+                                        <a href="Auditoria_proveedores.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
                                     </div>
                                 </div>
                             </div>
@@ -199,11 +199,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Tipos de producto en inventario</div>
+                                                Auditoria Tipos de producto</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
                                           
-                                          $consulta = "begin ContarTipos(:p_RESULTADO, :p_CURSOR); End;";
+                                          $consulta = "begin AuditTipo(:p_RESULTADO, :p_CURSOR); End;";
                                           $resultado = oci_parse($conexion, $consulta);
                                           $cursor = oci_new_cursor($conexion);
                                           oci_bind_by_name($resultado, ':p_CURSOR', $cursor, -1, OCI_B_CURSOR);
@@ -224,7 +224,7 @@
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
-                                        <a href="tipo_producto.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
+                                        <a href="Auditoria_tipo.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
                                     </div>
                                 </div>
                             </div>
@@ -237,11 +237,11 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Clientes activos</div>
+                                                Auditoria Usuarios</div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                             <?php
                                           
-                                          $consulta = "begin ContarCliente(:p_RESULTADO, :p_CURSOR); End;";
+                                          $consulta = "begin AuditUsuario(:p_RESULTADO, :p_CURSOR); End;";
                                           $resultado = oci_parse($conexion, $consulta);
                                           $cursor = oci_new_cursor($conexion);
                                           oci_bind_by_name($resultado, ':p_CURSOR', $cursor, -1, OCI_B_CURSOR);
@@ -262,33 +262,11 @@
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
-                                        <a href="Clientes.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
+                                        <a href="Auditoria_usuarios.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
                                     </div>
                                 </div>
                             </div>
                         </div>
-
-                         <!-- Earnings (Monthly) Card Example -->
-                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Auditorias</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                            6
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-                                        <a href="Auditoria.php"><input  class=" btn btn-primary" type="button" value="Ir"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                
 
                         </div>
                     </div>

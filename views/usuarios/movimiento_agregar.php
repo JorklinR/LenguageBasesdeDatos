@@ -13,7 +13,7 @@
 <div class="col-sm-6">
 <div class="mb-3">
 <label for="Codigo" class="form-label">Codigo *</label>
-<input type="number"  id="Codigo" name="Codigo" class="form-control" required>
+<input type="number"  id="Codigo" name="Codigo" class="form-control" readonly>
 </div>
 </div>
 
@@ -39,7 +39,7 @@ oci_execute($resultado);
 <div class="col-sm-6">
 <div class="mb-3">
 <label for="orden" class="form-label">Numero de orden *</label>
-<input type="number"  id="orden" name="orden" class="form-control" required>
+<input type="number"  id="orden" name="orden" class="form-control" readonly>
 </div>
 </div>
 

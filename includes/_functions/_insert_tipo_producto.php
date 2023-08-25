@@ -6,8 +6,7 @@ require_once ("../_db.php");
     $Codigo=$_POST['Codigo'];
     $Descripcion=$_POST['Descripcion'];
 
-    $consulta="INSERT INTO TIPO_PRODUCTO (ID_CATEGORIA, DESCRIPCION_CATEGORIA_TIPO_PRODUCTO)
-    VALUES ($Codigo, '$Descripcion')";
+    $consulta= "begin  InsertarTipoProducto(Autotipo.nextval, '$Descripcion'); End;";
 
     $stid = oci_parse($conexion, $consulta);
     oci_execute($stid);

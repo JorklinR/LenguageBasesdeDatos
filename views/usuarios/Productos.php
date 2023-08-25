@@ -42,7 +42,9 @@
 <tbody>
 
 <?php
-$consulta="SELECT * FROM PRODUCTO";
+$consulta="SELECT * FROM VISTA_PRODUCTO_NM I 
+JOIN PROVEEDOR P ON I.PROVEEDOR = P.ID_PROVEEDOR
+JOIN TIPO_PRODUCTO TP ON I.TIPO_PRODUCTO = TP.ID_CATEGORIA";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -56,18 +58,18 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
- echo "<td>".$row['ID_PRODUCTO']."</td>";
- echo "<td>".$row['ID_PROVEEDOR']."</td>";
- echo "<td>".$row['NOMBRE_PRODUCTO']."</td>";
- echo "<td>".$row['TIPO_PRODUCTO']."</td>";
- echo "<td>".$row['SERIE_PRODUCTO']."</td>";
- echo "<td>".$row['MODELO_PRODUCTO']."</td>";
- echo "<td>".$row['MARCA_PRODUCTO']."</td>";
- echo "<td>".$row['STOCK']."</td>";
+ echo "<td>".$row['IDENTIFICADOR']."</td>";
+ echo "<td>".$row['NOMBRE_PROVEEDOR']."</td>";
+ echo "<td>".$row['NOMBRE']."</td>";
+ echo "<td>".$row['DESCRIPCION_CATEGORIA_TIPO_PRODUCTO']."</td>";
+ echo "<td>".$row['SERIE']."</td>";
+ echo "<td>".$row['MODELO']."</td>";
+ echo "<td>".$row['MARCA']."</td>";
+ echo "<td>".$row['CANTIDAD']."</td>";
  echo "<td>";
  echo "<ul class='action-list'>";
- echo '<li><a href="producto_editar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Editar</div></a></li>';
- echo '<li><a href="producto_eliminar.php?id=' . $row['ID_PRODUCTO'] . '" <div>Eliminar</div></a></li>'; 
+ echo '<li><a href="producto_editar.php?id=' . $row['IDENTIFICADOR'] . '" <div>Editar</div></a></li>';
+ echo '<li><a href="producto_eliminar.php?id=' . $row['IDENTIFICADOR'] . '" <div>Eliminar</div></a></li>'; 
  echo "</ul>"; 
  echo "</td>"; 
  echo "</tr>";

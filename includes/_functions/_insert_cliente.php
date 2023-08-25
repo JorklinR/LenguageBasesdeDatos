@@ -9,9 +9,7 @@ require_once ("../_db.php");
     $Numero=$_POST['Numero'];
     $Correo=$_POST['Correo'];
 
-
-    $consulta="INSERT INTO Cliente (ID_CLIENTE, NOMBRE_CLIENTE, DIRECCION_CLIENTE, NUMERO_TELEFONO_CLIENTE, CORREO_ELECTRONICO_CLIENTE)
-    VALUES ($Codigo, '$Proveedor', '$Direccion', $Numero, '$Correo')";
+    $consulta= "begin  InsertarCliente(Autocliente.nextval, '$Cliente', '$Direccion', $Numero, '$Correo'); End;";
 
     $stid = oci_parse($conexion, $consulta);
     oci_execute($stid);

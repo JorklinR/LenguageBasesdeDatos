@@ -7,8 +7,7 @@
 
        <section>
         <div class="container mt-5">
-            <center><h1>Proveedor</h1></center>
-        <a href="proveedor_agregar.php"><input  id="agregar" class=" btn btn-primary" type="button" value="Agregar proveedor"></a>
+            <center><h1>Auditoria Proveedores</h1></center>
         <div class="row">
 <div class="col-md-offset-1 col-md-10">
 
@@ -22,13 +21,12 @@
                 <div class="panel-body table-responsive">
                     <table class="table">
                         <thead>
+
 <tr>
-<th>Código del proveedor</th>
-<th>Nombre del proveedor</th>
-<th>Dirección del proveedor</th>
-<th>Número del proveedor</th>
-<th>Correo del proveedor</th>
-<th>Acciones</th>
+<th>Usuario</th>
+<th>Fecha</th>
+<th>Accion</th>
+
 </tr>
 
 </thead>
@@ -36,7 +34,7 @@
 <tbody>
 
 <?php
-$consulta="SELECT * FROM VISTA_PROVEEDOR_NM";
+$consulta="SELECT * FROM tb_auditoria_proveedor";
 $resultado=oci_parse($conexion,$consulta);
 oci_execute($resultado);
 
@@ -50,17 +48,9 @@ oci_execute($resultado);
 <!-- empieza la tabla-->
 <?php while ($row = oci_fetch_array($resultado, OCI_ASSOC+OCI_RETURN_NULLS)) {
  echo "<tr>";
- echo "<td>".$row['IDENTIFICADOR']."</td>";
- echo "<td>".$row['NOMBRE']."</td>";
- echo "<td>".$row['DIRECCION']."</td>";
- echo "<td>".$row['CONTACTO']."</td>";
- echo "<td>".$row['CORREO']."</td>";
- echo "<td>";
- echo "<ul class='action-list'>";
- echo '<li><a href="proveedor_editar.php?id=' . $row['IDENTIFICADOR'] . '" <div>Editar</div></a></li>';
- echo '<li><a href="proveedor_eliminar.php?id=' . $row['IDENTIFICADOR'] . '" <div>Eliminar</div></a></li>'; 
- echo "</ul>"; 
- echo "</td>"; 
+ echo "<td>".$row['USUARIO_ACCION']."</td>";
+ echo "<td>".$row['FECHA']."</td>";
+ echo "<td>".$row['ACCION_REALIZADA']."</td>"; 
  echo "</tr>";
 }?>
 

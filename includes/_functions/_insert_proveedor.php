@@ -9,9 +9,7 @@ require_once ("../_db.php");
     $Numero=$_POST['Numero'];
     $Correo=$_POST['Correo'];
 
-
-    $consulta="INSERT INTO Proveedor (ID_PROVEEDOR, NOMBRE_PROVEEDOR, DIRECCION_PROVEEDOR, NUMERO_TELEFONO_PROVEEDOR, CORREO_ELECTRONICO_PROVEEDOR)
-    VALUES ($Codigo, '$Proveedor', '$Direccion', $Numero, '$Correo')";
+    $consulta= "begin  InsertarProveedor(Autoproveedor.nextval, '$Proveedor', '$Direccion', $Numero, '$Correo'); End;";
 
     $stid = oci_parse($conexion, $consulta);
     oci_execute($stid);
